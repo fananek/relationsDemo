@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>#(pageData.title)</title>
+        <link rel="stylesheet" href="/styles/app.css">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;display=optional" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+        <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+        
+        <!-- HEADER -->
+        #extend("partials/header")
+        
+        <!-- CONTENT -->
+        <main class="font-sans-body flex-grow bg-gray-100 safe-left safe-right safe-bottom">
+            #import("content")
+        </main>
+        <!-- FOOTER -->
+        #extend("partials/footer")
+        
+    </body>
+</html>
+

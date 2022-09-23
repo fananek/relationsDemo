@@ -5,8 +5,7 @@ import Vapor
 
 // configures your application
 public func configure(_ app: Application) throws {
-    // uncomment to serve files from /Public folder
-    // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
+    app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
     app.databases.use(.postgres(
         hostname: Environment.get("DATABASE_HOST") ?? "localhost",
@@ -16,11 +15,24 @@ public func configure(_ app: Application) throws {
         database: Environment.get("DATABASE_NAME") ?? "vapor_database"
     ), as: .psql)
 
-    app.migrations.add(CreateTodo())
-
     app.views.use(.leaf)
 
-    
+    app.sessions.use(.fluent)
+    app.migrations.add(SessionRecord.migration)
+
+    app.sessions.configuration.cookieName = "relations-demo-app"           
+    app.middleware.use(app.sessions.middleware)
+    app.sessions.configuration.cookieFactory = { sessionID in
+        .init(string: sessionID.string, isSecure: true)
+    }
+    app.middleware.use(User.sessionAuthenticator()) 
+
+    // run migrations
+    try migrations(app)
+    if app.environment == .development {
+        // seed development environment database
+        try seeds(app)
+    }
 
     // register routes
     try routes(app)

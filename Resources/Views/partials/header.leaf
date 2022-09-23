@@ -1,0 +1,82 @@
+<header class="font-sans-body sticky top-0 z-40">
+    <nav x-data="{ open: false }" class="bg-white y-800 border-t-4 border-indigo-500">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex justify-between h-20">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out" aria-expanded="false">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/" class="inline">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="48" height="48"><path style="fill:#3A99D7;" cx="256" cy="256" r="256" d="M48 24A24 24 0 0 1 24 48A24 24 0 0 1 0 24A24 24 0 0 1 48 24z"/><path style="fill:#2682BF;" d="M47.923 26.102C46.856 38.372 36.564 48 24.016 48c-0.294 0 -0.587 0 -0.881 -0.016L11.776 36.626l20.6 -26.071L47.923 26.102z"/><path style="fill:#FFD630;" d="M12.842 10.03c6.46 0 11.745 0 18.251 0c0.989 0 1.792 0.803 1.792 1.792v10.694v2.534v8.994v0.772c0 1.205 -0.974 2.179 -2.179 2.179H12.842c-0.989 0 -1.792 -0.803 -1.792 -1.792V11.822C11.05 10.833 11.853 10.03 12.842 10.03z"/><path x="130.222" y="118.191" style="fill:#F7F7F8;" width="208.195" height="265.069" d="M12.208 11.08H31.727V35.93H12.208V11.08z"/><g><path style="fill:#E84F4F;" cx="369.737" cy="332.492" r="65.612" d="M40.814 31.171A6.151 6.151 0 0 1 34.663 37.322A6.151 6.151 0 0 1 28.512 31.171A6.151 6.151 0 0 1 40.814 31.171z"/><path style="fill:#E84F4F;" d="M13.801 13.12h2.519v2.905h-2.519V13.12zM13.801 28.729h2.519v2.905h-2.519V28.729zM13.801 23.521h2.519v2.905h-2.519V23.521zM13.801 18.313h2.519v2.905h-2.519V18.313z"/></g><path style="fill:#999999;" d="M17.509 14.187h8.608v0.758h-8.608L17.509 14.187L17.509 14.187zM17.509 29.795h8.608v0.758h-8.608L17.509 29.795L17.509 29.795zM17.509 24.587h8.608v0.758h-8.608L17.509 24.587L17.509 24.587zM17.509 19.379h8.608v0.758h-8.608L17.509 19.379L17.509 19.379z"/><path style="fill:#FFD630;" cx="369.737" cy="332.492" r="55.392" d="M39.856 31.171A5.193 5.193 0 0 1 34.663 36.364A5.193 5.193 0 0 1 29.47 31.171A5.193 5.193 0 0 1 39.856 31.171z"/><path style="fill:#FFFFFF;" d="M30.274 31.341l1.654 -0.185l1.792 1.591c0 0 0.865 -3.617 4.915 -4.466c-1.978 1.067 -3.199 3.184 -4.018 6.104c-0.201 0.742 -0.742 0.541 -0.912 0.325c-0.278 -0.355 -2.133 -2.473 -3.43 -3.385V31.341z"/><path style="fill:#E84F4F;" d="M20.245 8.515h0.278c-0.077 -0.124 -0.124 -0.278 -0.124 -0.433v-0.927c0 -0.51 0.464 -0.927 1.036 -0.927h1.067c0.572 0 1.036 0.417 1.036 0.927v0.927c0 0.154 -0.046 0.294 -0.124 0.433h0.278c1.9 0 3.446 1.406 3.446 3.107l0 0H16.783l0 0c0 -1.715 1.561 -3.107 3.446 -3.107h0.016V8.515z"/><path style="fill:#C94545;" d="M21.976 6.228h0.541c0.572 0 1.036 0.417 1.036 0.927v0.927c0 0.154 -0.046 0.294 -0.124 0.433h0.278c1.9 0 3.446 1.406 3.446 3.107l0 0h-5.177L21.976 6.228L21.976 6.228z"/></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="hidden sm:ml-6 sm:flex text-gray-500 text-md font-semibold space-x-1">
+                            #if(webpageURL == "/projects"):
+                            <a href="/projects" class="inline-flex items-center px-1 pt-1 px-3 leading-5 border-b-2 border-indigo-500 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-100 transition duration-150 ease-in-out">Projects</a>
+                            #else:
+                            <a href="/projects" class="inline-flex items-center px-1 pt-1 px-3 leading-5 border-b-2 border-transparent hover:border-gray-500 hover:text-gray-900 focus:outline-none focus:text-white focus:border-gray-100 transition duration-150 ease-in-out">Projects</a>
+                            #endif
+                            #if(webpageURL == "/users"):
+                            <a href="/users" class="inline-flex items-center px-1 pt-1 px-3 leading-5 border-b-2 border-indigo-500 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-100 transition duration-150 ease-in-out">Users</a>
+                            #else:
+                            <a href="/users" class="inline-flex items-center px-1 pt-1 px-3 leading-5 border-b-2 border-transparent hover:border-gray-500 hover:text-gray-900 focus:outline-none focus:text-white focus:border-gray-100 transition duration-150 ease-in-out">Users</a>
+                            #endif
+                    </div>
+                </div>
+                
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    
+                    #if(loggedInUser):
+                    <div @click.away="open = false" class="ml-3 relative" x-data="{ open: false }">
+                        <div>
+                            <button @click="open = !open" class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out">
+                                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                <span class="hidden ml-3 text-gray-500 text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>#(loggedInUser.fullName)</span>
+                            </button>
+                        </div>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                            <div class="py-1 rounded-md bg-gray-50 shadow-xs">
+                                <a href="/auth/profile/#(loggedInUser.id)" class="block px-4 py-2 text-sm leading-5 text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                                    My Profile
+                                </a>
+                                <a href="/auth/logout" class="block px-4 py-2 text-sm leading-5 text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                                    Sign out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    #else:
+                    <a href="/login" class="text-gray-900 hover:text-indigo-500">
+                        <span class="sr-only">Sign in</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                        </svg>
+                    </a>
+                    #endif
+                </div>
+                
+            </div>
+        </div>
+        <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden text-center">
+            <div class=" pt-2 pb-3 text-gray-500">
+                #if(webpageURL == "/projects"):
+                <a href="/projects" class="block px-3 py-2 text-base uppercase font-medium text-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
+                #else:
+                <a href="/projects" class="block px-3 py-2 text-base uppercase font-medium hover:text-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
+                #endif
+                #if(webpageURL == "/users"):
+                <a href="/users" class="block px-3 py-2 text-base uppercase font-medium text-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Users</a>
+                #else:
+                <a href="/users" class="block px-3 py-2 text-base uppercase font-medium hover:text-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Users</a>
+                #endif
+            </div>
+        </div>
+    </nav>
+</header>

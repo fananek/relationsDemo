@@ -1,14 +1,17 @@
 import Fluent
 import Vapor
 
-final class Todo: Model, Content {
-    static let schema = "todos"
+final class Project: Model, Content {
+    static let schema = "projects"
     
     @ID(key: .id)
     var id: UUID?
 
     @Field(key: "title")
     var title: String
+
+    @Siblings(through: UserProject.self, from: \.$project, to: \.$user)
+    public var users: [User]
 
     init() { }
 
